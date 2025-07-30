@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+:root{
+
+}
+
+body{
+    @apply min-h-screen;
+}

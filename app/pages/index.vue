@@ -1,10 +1,9 @@
 <template>
-    <div>
-        <h1>wonderful</h1>
-    </div>
+    <hero/>
 </template>
 
 <script setup lang="ts">
+import { hero } from '~/components/pages/homepage/exporter';
 useHead({
     title: 'Narrative Nexus',
     meta: [
@@ -15,5 +14,12 @@ useHead({
 </script>
 
 <style scoped>
+@reference "tailwindcss";
 
+h1{
+    @apply text-4xl font-bold text-center
+}
+h2{
+    @apply text-3xl font-semibold text-center text-gray-600 mt-10
+}
 </style>
