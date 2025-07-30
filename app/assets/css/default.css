@@ -1,9 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 @reference "tailwindcss";
 
-:root{
+* {
+  font-family:Noto Sans, sans-serif;
+  transition: all 0.3s;
+  @apply p-0 m-0;
+}
+:root {
+  --60:#673ab7ff;
+  --30:#2d3142ff;
+  --10:#bfc0c0ff;
+  --accent:#e000ff;
+  --white: #ffffff;
 
+  --alpha-bg: rgba(0, 0, 0, 0.04);
+  --alpha-border: rgba(255, 255, 255, 0.2);
+
+  /*Definitions*/
+  --max-w: 1700px;
+  --min-h: 50dvh;
+  --blur: 15px;
+  --body-bg: white;
+  --text: 4.5rem;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: mandatory;
+  transition: all 3s !important;
 }
 
-body{
-    @apply min-h-screen;
+html::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+}
+html::-webkit-scrollbar-track {
+  background-color: #1a1a1a; /* Track color */
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #444; /* Thumb color */
+  border-radius: 6px; /* Rounded corners */
+}
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #666; /* Thumb color on hover */
+}
+/* Firefox scrollbar customization */
+html {
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: #444 #1a1a1a; /* Thumb color and track color */
+}
+::selection {
+  background: var(--10);
+  color: var(--dark);
 }

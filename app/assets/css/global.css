@@ -1,0 +1,45 @@
+
+@reference "tailwindcss";
+
+body{
+    @apply bg-[var(--body-bg)] min-h-screen
+}
+
+section{
+   @apply w-full min-h-[var(--min-h)] flex items-center justify-center flex-col py-12 rounded-xl mb-14
+}
+.wrapper{
+    z-index: 0;
+    @apply  rounded-xl max-w-[var(--max-w)]  w-full flex items-center justify-center flex-col gap-5
+}
+.sect-text-wrap{
+    .sect-intro{
+        letter-spacing: 3px;
+        @apply text-3xl text-[var(--30)] font-semibold uppercase
+    }
+    .sect-intro::first-letter{
+        @apply bg-[var(--60)] p-1 m-0.5 rounded-sm 
+    }
+    .sect-desc{
+        @apply text-lg text-[var(--gray)]
+    }
+    @apply flex items-center justify-center flex-col gap-2
+}
+.sect-name, .sect-intro{
+    @apply text-center
+}
+.card-wrap{
+    .card{
+        @apply flex flex-col items-center justify-center gap-6 py-2 px-2 w-full max-w-[320px] shadow-md rounded-xl
+    }
+    @apply w-full flex items-center justify-center gap-5 flex-wrap mt-10
+}
+.card-svg{
+    *{
+      fill: black;
+    }
+    @apply h-12 w-12 rounded-full bg-[var(--alpha-bg)] inline-flex justify-center items-center shadow-sm p-1.5
+  }
+.btn-wrap{
+    @apply  flex flex-wrap justify-center gap-4
+}

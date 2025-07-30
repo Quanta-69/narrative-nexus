@@ -1,9 +1,11 @@
 <template>
     <hero/>
+    <editors_pick/>
+    <trending/>
 </template>
 
 <script setup lang="ts">
-import { hero } from '~/components/pages/homepage/exporter';
+import { hero, editors_pick, trending } from '~/components/pages/homepage/exporter';
 useHead({
     title: 'Narrative Nexus',
     meta: [
@@ -15,7 +17,9 @@ useHead({
 
 <style scoped>
 @reference "tailwindcss";
-
+section:nth-of-type(odd){
+    @apply bg-[var(--alpha-bg)]
+}
 h1{
     @apply text-4xl font-bold text-center
 }
