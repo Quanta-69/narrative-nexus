@@ -1,12 +1,20 @@
 <template>
     <hero/>
+    <featured @category-selected="handleCategorySelected"  />
+    <dynamic_category :activeCategory="activeCategory" />
     <editors_pick/>
     <trending/>
 </template>
 
 <script setup lang="ts">
-import { hero, editors_pick, trending } from '~/components/pages/homepage/exporter';
+import { ref } from 'vue';
+import { hero, editors_pick, trending, featured, dynamic_category, latest_reads } from '~/components/pages/homepage/exporter';
+const activeCategory = ref('latest');
 
+const handleCategorySelected = (category: string) => {
+  activeCategory.value = category;
+  console.log(`Active content area category changed to: ${category}`); // For debugging
+};
 useHead({
     title: 'Narrative Nexus',
     meta: [
@@ -14,6 +22,7 @@ useHead({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
 });
+
 </script>
 
 <style scoped>

@@ -17,9 +17,6 @@ section{
         letter-spacing: 3px;
         @apply text-3xl text-[var(--30)] font-semibold uppercase
     }
-    .sect-intro::first-letter{
-        @apply bg-[var(--60)] p-1 m-0.5 rounded-sm 
-    }
     .sect-desc{
         @apply text-lg text-[var(--gray)]
     }
