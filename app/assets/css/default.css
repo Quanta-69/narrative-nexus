@@ -8,11 +8,11 @@
   @apply p-0 m-0;
 }
 h1,h2,h3,h4,h5,h6 {
-  font-family: Playfair, serif;
+  font-family: Playfair;
 }
 a, p, span, li, button {
   font-family: Noto Sans, sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   color: var(--dark);
 }
 :root {
