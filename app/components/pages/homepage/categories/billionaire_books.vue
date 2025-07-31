@@ -1,21 +1,5 @@
 <script setup>
-// In a real application, you would fetch actual Billionaire Romance book data here.
-// For now, using placeholder data.
-const billionaireBooks = [
-	{ id: 101, title: "The CEO's Contract", author: "Ava Sterling", cover: "https://placehold.co/100x150/FFD700/333333?text=Billionaire+1" },
-	{ id: 102, title: "His Golden Touch", author: "Marcus Thorne", cover: "https://placehold.co/100x150/F8BBD0/1A3B4A?text=Billionaire+2" },
-	{ id: 103, title: "Empire of Love", author: "Sophia Reed", cover: "https://placehold.co/100x150/1A3B4A/FFD700?text=Billionaire+3" },
-	{ id: 104, title: "Diamonds & Desire", author: "Liam Blackwood", cover: "https://placehold.co/100x150/EA738D/FFFFFF?text=Billionaire+4" },
-	{ id: 105, title: `The Billionaire's Secret Baby`, author: "Isabella Grace", cover: `https://placehold.co/100x150/2F3C7E/F8BBD0?text=Billionaire+5` },
-];
-
-// Example of how you might fetch data in a real scenario:
-// import { ref, onMounted } from 'vue';
-// const billionaireBooks = ref([]);
-// onMounted(async () => {
-//   // Fetch your Billionaire Romance books from an API or local data source
-//   // billionaireBooks.value = await fetch('/api/books?category=billionaire').then(res => res.json());
-// });
+import { billionaireBooks } from '~/data/billionaire-books';
 </script>
 
 <template>
