@@ -14,10 +14,12 @@
 @reference "tailwindcss";
 
 section{
-    background: white !important;
-    @apply min-h-[30vh] flex items-center justify-center
+    background:url('/assets/svgs/hero.svg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    @apply min-h-[50vh]
 }
 h1{
-    @apply text-4xl font-bold text-center text-[var(--accent)]
+    @apply text-4xl font-bold text-center text-[var(--30)]
 }
 </style>

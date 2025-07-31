@@ -1,18 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
 
 @reference "tailwindcss";
 
 * {
-  font-family:Noto Sans, sans-serif;
   transition: all 0.3s;
   @apply p-0 m-0;
 }
+h1,h2,h3,h4,h5,h6 {
+  font-family: Playfair, serif;
+}
+a, p, span, li, button {
+  font-family: Noto Sans, sans-serif;
+  font-weight: 300;
+  color: var(--dark);
+}
 :root {
-  --60:#673ab7ff;
-  --30:#2d3142ff;
+  --60:#2F3C7E;
+  --30:#A52A2A;
   --10:#bfc0c0ff;
-  --accent:#e000ff;
+  --accent:#FFD700;
   --white: #ffffff;
+  --dark:#222222;
 
   --alpha-bg: rgba(0, 0, 0, 0.04);
   --alpha-border: rgba(255, 255, 255, 0.2);

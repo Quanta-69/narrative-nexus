@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 import { hero, editors_pick, trending } from '~/components/pages/homepage/exporter';
+
 useHead({
     title: 'Narrative Nexus',
     meta: [
