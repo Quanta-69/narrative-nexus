@@ -22,4 +22,9 @@ section{
 h1{
     @apply text-4xl font-bold text-center text-[var(--30)]
 }
+@media (min-width: 1200px) {
+    section{
+        background-image: url('/assets/svgs/hero.svg');
+    }
+}
 </style>
