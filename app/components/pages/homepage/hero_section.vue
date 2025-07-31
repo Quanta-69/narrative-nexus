@@ -14,7 +14,7 @@
 @reference "tailwindcss";
 
 section{
-    background:url('/assets/svgs/hero.svg') no-repeat;
+    background:url('/assets/svgs/hero-mobile.svg') no-repeat;
     background-position: center;
     background-size: cover;
     @apply min-h-[90vh]
