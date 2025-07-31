@@ -1,11 +1,11 @@
 <template>
-    <Navbar/>
-    <slot/>
-    <Footer/>
+	<Navbar />
+	<slot />
+	<Footer />
 </template>
 
 <script setup lang="ts">
-import { Navbar, Footer } from '~/components/ui/exporter';
+import { Navbar, Footer } from "~/components/ui/exporter";
 </script>
 
 <style scoped>

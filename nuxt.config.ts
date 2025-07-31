@@ -1,10 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
-  css: [
-    'assets/css/default.css',
-    'assets/css/global.css',
-  ],
-  modules: ['@nuxtjs/tailwindcss']
-})
+	modules: ["@nuxtjs/tailwindcss", "@nuxt/eslint"],
+	devtools: { enabled: true },
+	css: [
+		"assets/css/default.css",
+		"assets/css/global.css",
+	],
+	compatibilityDate: "2025-07-15",
+	eslint: {
+		config: {
+			stylistic: {
+				semi: true,
+				quotes: "double",
+				commaDangle: "always-multiline",
+				indent: "tab",
+			},
+		},
+	},
+});

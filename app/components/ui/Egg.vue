@@ -1,7 +1,5 @@
 <template>
-	<section>
-		<h1>Editor's Pick</h1>
-	</section>
+    <h1>Testing Egg Shell Component</h1>
 </template>
 
 <script setup lang="ts">
