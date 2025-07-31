@@ -2,8 +2,8 @@
 	<PagesHomepageHeroSection/>
 	<PagesHomepageFeaturedSection @category-selected="handleCategorySelected" />
 	<PagesHomepageDynamicCategorySection :active-category="activeCategory"/>
-	<PagesHomepageEditorsPick/>
-	<PagesHomepageTrending/>
+	<PagesHomepageEditorsPickSection/>
+	<PagesHomepageTrendingSection/>
 </template>
 
 <script setup lang="ts">
