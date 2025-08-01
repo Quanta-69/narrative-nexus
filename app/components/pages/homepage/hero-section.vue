@@ -29,7 +29,6 @@ section{
     background:url('/assets/svgs/hero-mobile.svg') no-repeat;
     background-position: center;
     background-size: cover;
-    background-attachment: fixed;
     @apply min-h-[90vh]
 }
 h1{
