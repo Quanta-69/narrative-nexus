@@ -11,4 +11,7 @@ import { billionaireBooks } from '~/data/billionaire-books';
 		:cover="book.cover"
 		:author="book.author" />
 	</div>
+	<NuxtLink to="/category/billionaire">
+		<UiNButton text="Billionaire"/>
+	</NuxtLink>
 </template>

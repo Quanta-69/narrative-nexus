@@ -7,11 +7,12 @@
 			<p class="text-sm text-gray-600 mb-2">
 				{{ author }}
 			</p>
-			<NuxtLink :to="url" ><button class="mt-auto px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium rounded-full transition duration-300">Read Now</button></NuxtLink>
+			<NuxtLink :to="url"><button class="mt-auto px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium rounded-full transition duration-300">Read Now</button></NuxtLink>
 		</div>
 </template>
 
 <script setup lang="ts">
+
 const props = defineProps({
     title: {
         type: String,

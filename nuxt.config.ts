@@ -1,6 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	modules: ["@nuxtjs/tailwindcss", "@nuxt/eslint"],
+	modules: [
+		"@nuxtjs/tailwindcss",
+		"@nuxt/eslint",
+		"@nuxtjs/supabase",
+	],
+	supabase: {
+    redirect: false
+  	},
 	devtools: { enabled: true },
 	css: [
 		"assets/css/default.css",
@@ -13,7 +20,6 @@ export default defineNuxtConfig({
 				semi: true,
 				quotes: "double",
 				commaDangle: "always-multiline",
-				indent: "tab",
 			},
 		},
 	},

@@ -32,7 +32,7 @@ section{
     @apply min-h-[90vh]
 }
 h1{
-    @apply text-[min(10vw,40px)] font-bold text-center text-[var(--30)]
+    @apply text-[min(10vw,60px)] font-bold text-center text-[var(--30)]
 }
 @media (min-width: 1200px) {
     section{
