@@ -1,38 +1,28 @@
-<template>
-	<PagesHomepageHeroSection/>
-	<PagesHomepageFeaturedSection @category-selected="handleCategorySelected" />
-	<PagesHomepageDynamicCategorySection :active-category="activeCategory"/>
-	<PagesHomepageEditorsPickSection/>
-	<PagesHomepageTrendingSection/>
-</template>
-
 <script setup lang="ts">
 import { ref } from "vue";
-
-const activeCategory = ref("latest");
-
+// State to hold the currently selected category for the dynamic content area
+const activeCategory = ref<string>("latest");
+// Function to update the active category when a button is clicked in FeaturedSection
 const handleCategorySelected = (category: string) => {
-	activeCategory.value = category;
-	console.log(`Active content area category changed to: ${category}`); // For debugging
+  activeCategory.value = category;
+  console.log(`Active content area category changed to: ${category}`); // For debugging
 };
+
 useHead({
-	title: "Narrative Nexus",
-	meta: [
-		{ name: "description", content: "A platform for collaborative storytelling and narrative exploration." },
-		{ name: "viewport", content: "width=device-width, initial-scale=1" },
-	],
+  title: "Narrative Nexus",
+  meta: [
+    { name: "description", content: "A platform for collaborative storytelling and narrative exploration." },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+  ],
 });
 </script>
 
-<style scoped>
-@reference "tailwindcss";
-section:nth-of-type(odd){
-    @apply bg-[var(--alpha-bg)]
-}
-h1{
-    @apply text-4xl font-bold text-center
-}
-h2{
-    @apply text-3xl font-semibold text-center text-gray-600 mt-10
-}
-</style>
+<template>
+  <div class="min-h-screen bg-gray-50 text-gray-900 font-inter antialiased">
+    <PagesHomepageHeroSection />
+    <PagesHomepageFeaturedSection @category-selected="handleCategorySelected" />
+    <PagesHomepageDynamicCategorySection :active-category="activeCategory" />
+    <PagesHomepageEditorsPickSection />
+    <PagesHomepageTrendingSection />
+  </div>
+</template>

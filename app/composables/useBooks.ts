@@ -1,38 +1,56 @@
-// This composable now fetches the latest books by calling our new type-safe server API endpoint.
+// This composable fetches books from the Nuxt server API for a given category slug.
+// It is now defensive against invalid slugs.
 
 import { ref } from 'vue';
 
-// Define the shape of the book data as it's returned from our server API.
+// Define the shape of the book data for a clean return value
 interface Book {
   id: string;
   title: string;
-  slug: string;
-  cover: string;
   author: string;
-  categorySlug: string;
+  cover: string;
+  slug: string;
 }
 
 /**
- * Fetches the latest published books from the Nuxt server API.
+ * Fetches books from the Nuxt server API for a given category slug.
  *
- * @returns An object with reactive data, pending, and error states.
+ * @param categorySlug The slug of the category to fetch books for.
+ * @returns An object with reactive data, pending, error states, and the category name.
  */
-export const useLatestBooks = () => {
-  const latestBooks = ref<Book[] | null>(null);
+export const useBooks = (categorySlug: string) => {
+  const books = ref<Book[] | null>(null);
+  const categoryName = ref<string | null>(null);
   const pending = ref<boolean>(true);
   const error = ref<any>(null);
 
-  const fetchLatestBooks = async () => {
+  const fetchBooks = async () => {
     pending.value = true;
     error.value = null;
+
+    // Defensive check to ensure we have a valid slug before fetching.
+    if (!categorySlug || categorySlug === 'latest') {
+      error.value = new Error('No valid category slug provided.');
+      pending.value = false;
+      return;
+    }
+
     try {
-      const response = await $fetch<{ books: Book[], error?: string }>('/api/books/latest');
+      const response = await $fetch<{ books: any[], categoryName?: string, error?: string }>(`/api/books/${categorySlug}`);
       
       if ('error' in response && typeof response.error === 'string') {
         throw new Error(response.error);
       }
       
-      latestBooks.value = response.books;
+      books.value = response.books.map(book => ({
+        id: book.id,
+        title: book.title,
+        slug: book.slug,
+        cover: book.cover_image_url,
+        author: book.authors?.name || 'Unknown Author'
+      }));
+
+      categoryName.value = response.categoryName || 'Category';
 
     } catch (err) {
       console.error(err);
@@ -42,10 +60,11 @@ export const useLatestBooks = () => {
     }
   };
 
-  fetchLatestBooks();
+  fetchBooks();
 
   return {
-    latestBooks,
+    books,
+    categoryName,
     pending,
     error,
   };
