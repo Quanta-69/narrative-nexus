@@ -1,7 +1,7 @@
 // This composable fetches a single book from the Nuxt server API.
 // It is now updated to handle both category and book slugs.
 
-import { ref } from 'vue';
+import { ref } from "vue";
 
 // Define the shape of the book data as the component will consume it.
 interface Book {
@@ -44,19 +44,19 @@ export const useBook = (categorySlug: string, bookSlug: string) => {
 
     // Defensive check to ensure we have valid slugs before fetching.
     if (!categorySlug || !bookSlug) {
-      error.value = new Error('Category or book slug not provided.');
+      error.value = new Error("Category or book slug not provided.");
       pending.value = false;
       return;
     }
 
     try {
       // Use both slugs in the URL to correctly hit the server API endpoint
-      const response = await $fetch<{ book: ServerBookResponse, error?: string }>(`/api/books/${categorySlug}/${bookSlug}`);
+      const response = await $fetch<{ book: ServerBookResponse; error?: string }>(`/api/books/${categorySlug}/${bookSlug}`);
 
-      if ('error' in response && typeof response.error === 'string') {
+      if ("error" in response && typeof response.error === "string") {
         throw new Error(response.error);
       }
-      
+
       // Map the server's response to our desired, flattened Book interface
       book.value = {
         id: response.book.id,
@@ -64,14 +64,15 @@ export const useBook = (categorySlug: string, bookSlug: string) => {
         slug: response.book.slug,
         synopsis: response.book.synopsis,
         cover: response.book.cover_image_url,
-        author: response.book.authors?.name || 'Unknown Author',
-        categorySlug: response.book.categories?.slug || 'uncategorized',
+        author: response.book.authors?.name || "Unknown Author",
+        categorySlug: response.book.categories?.slug || "uncategorized",
       };
-      
-    } catch (err) {
+    }
+    catch (err) {
       console.error(err);
       error.value = err;
-    } finally {
+    }
+    finally {
       pending.value = false;
     }
   };

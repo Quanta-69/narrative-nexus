@@ -1,10 +1,10 @@
 // This composable fetches the latest published books from Supabase, ordered by creation date.
 
-import { useSupabaseClient } from '#imports';
-import { ref } from 'vue';
+import { useSupabaseClient } from "#imports";
+import { ref } from "vue";
 
 // Import the generated Supabase types.
-import type { Database } from '~/supabase/types/database.types';
+import type { Database } from "~/supabase/types/database.types";
 
 // Define the shape of the book data with category slug for a clean return value
 interface Book {
@@ -33,7 +33,7 @@ export const useLatestBooks = () => {
     try {
       // Corrected select statement. It no longer selects the `status` column.
       const { data, error: fetchError } = await supabase
-        .from('books')
+        .from("books")
         .select(`
           id,
           title,
@@ -42,8 +42,8 @@ export const useLatestBooks = () => {
           authors ( name ),
           categories ( slug )
         `)
-        .eq('status', 'published')
-        .order('created_at', { ascending: false })
+        .eq("status", "published")
+        .order("created_at", { ascending: false })
         .limit(10);
 
       if (fetchError) {
@@ -55,14 +55,15 @@ export const useLatestBooks = () => {
         title: book.title,
         slug: book.slug,
         cover: book.cover_image_url,
-        author: book.authors?.name || 'Unknown Author',
-        categorySlug: book.categories?.slug || 'uncategorized',
+        author: book.authors?.name || "Unknown Author",
+        categorySlug: book.categories?.slug || "uncategorized",
       }));
-
-    } catch (err) {
+    }
+    catch (err) {
       console.error(err);
       error.value = err;
-    } finally {
+    }
+    finally {
       pending.value = false;
     }
   };

@@ -1,18 +1,18 @@
-import withNuxt from './.nuxt/eslint.config.mjs'
+import withNuxt from "./.nuxt/eslint.config.mjs";
 
 export default withNuxt({
   rules: {
     // Custom rules or overrides here
   },
   settings: {
-    'import/resolver': {
+    "import/resolver": {
       typescript: {
         alwaysTryTypes: true,
-        project: 'tsconfig.json',
+        project: "tsconfig.json",
       },
     },
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
     },
   },
-})
+});
